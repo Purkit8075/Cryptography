@@ -6,6 +6,7 @@ using namespace std;
 
 int main(void)
 {
+	using std::cout;
 	PlayFair playfair;
 	// playfair.GenerateBox();
 	// playfair.ShowBox();
@@ -15,10 +16,11 @@ int main(void)
 	// std::cout << playfair.EnCode("FK");
 	// playfair.GenerateBox();
 	// playfair.ShowBox();
-	string s = "AB";
-	playfair.GenerateAlphaBox();
-	playfair.ShowAlphaBox();
-	cout << endl;
+	string s = "dkayfnirmofnir";
+	// playfair.GenerateAlphaBox();
+	// playfair.ShowAlphaBox();
+	// cout << endl;
+	// cout << playfair.Preprocess(s) << endl;
 	cout << playfair.Preprocess(s) << endl;
 	cout << playfair.EnCode(s);
 }

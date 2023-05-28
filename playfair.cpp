@@ -10,7 +10,9 @@ void PlayFair::ReadinBoxFromFile(string FilePath)
 	{
 		for (int j = 0; j < Box_Size; j++)
 		{
-			fin >> Box[i][j];
+			char ch;
+			fin >> ch;
+			Box[i][j] = std::toupper(ch);
 		}
 	}
 	fin.close();
@@ -82,8 +84,8 @@ void PlayFair::GenerateAlphaBox()
 		for (int j = 0; j < Box_Size; j++)
 		{
 			int index = std::toupper(Box[i][j]) - 'A';
-			AlphaBox[index].x = i;
-			AlphaBox[index].y = j;
+			AlphaBox[index].x = j;
+			AlphaBox[index].y = i;
 		}
 	}
 }
@@ -94,8 +96,8 @@ void PlayFair::ShowAlphaBox()
 		std::cout << (char)(i + 'A') << " " << AlphaBox[i].x
 		          << " " << AlphaBox[i].y << '\n';
 
-	std::cout << AlphaBox['A' - 'A'].x << '\n';
-	std::cout << AlphaBox['B' - 'A'].x;
+	std::cout << AlphaBox['A' - 'A'].y << '\n';
+	std::cout << AlphaBox['B' - 'A'].y << '\n';
 	return;
 }
 
@@ -143,17 +145,35 @@ string PlayFair::EnCode(string pt)
 
 	for (int i = 0; i < PlainText.length(); i += 2)
 	{
+		int FirstLetterX = AlphaBox[PlainText[i] - 'A'].x;
+		int FirstLetterY = AlphaBox[PlainText[i] - 'A'].y;
+		int SecondLetterX =
+		    AlphaBox[PlainText[i + 1] - 'A'].x;
+		int SecondLetterY =
+		    AlphaBox[PlainText[i + 1] - 'A'].y;
+
 		// the same row
-		if (AlphaBox[PlainText[i] - 'A'].x ==
-		    AlphaBox[PlainText[i + 1] - 'A'].x)
+		if (FirstLetterY == SecondLetterY)
 		{
 			CipherText +=
-			    Box[(AlphaBox[PlainText[i] - 'A'].y + 1) %
-			        Box_Size];
+			    Box[FirstLetterY]
+			       [(FirstLetterX + 1) % Box_Size];
 			CipherText +=
-			    Box[(AlphaBox[PlainText[i + 1] - 'A'].y +
-			         1) %
-			        Box_Size];
+			    Box[SecondLetterY]
+			       [(SecondLetterX + 1) % Box_Size];
+		}
+		else if (FirstLetterX ==
+		         SecondLetterX) // the same column
+		{
+			CipherText += Box[(FirstLetterY + 1) % Box_Size]
+			                 [FirstLetterX];
+			CipherText += Box[(SecondLetterY + 1) %
+			                  Box_Size][SecondLetterX];
+		}
+		else
+		{
+			CipherText += Box[SecondLetterX][FirstLetterY];
+			CipherText += Box[FirstLetterX][SecondLetterY];
 		}
 	}
 
