@@ -48,6 +48,8 @@ public:
 
 	// Encode
 	string EnCode(string pt);
+	// Decode
+	string DeCode(string ct);
 };
 
 #endif //!_PLAYFAIR_H_

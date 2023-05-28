@@ -172,10 +172,68 @@ string PlayFair::EnCode(string pt)
 		}
 		else
 		{
-			CipherText += Box[SecondLetterX][FirstLetterY];
-			CipherText += Box[FirstLetterX][SecondLetterY];
+			CipherText += Box[SecondLetterY][FirstLetterX];
+			CipherText += Box[FirstLetterY][SecondLetterX];
 		}
 	}
 
 	return CipherText;
+}
+
+string PlayFair::DeCode(string ct)
+{
+	int Count = 0;
+	for (int i = 0; i < Box_Size; i++)
+	{
+		for (int j = 0; j < Box_Size; j++)
+		{
+			if (Box[i][j] == 0)
+				Count++;
+			if (Count > 2) // the Box is empty
+				return "The Box is empty!";
+		}
+	}
+
+	GenerateAlphaBox(); // Generate alpha box
+
+	string CipherText = Preprocess(ct);
+	string PlainText = "";
+
+	for (int i = 0; i < CipherText.length(); i += 2)
+	{
+		int FirstLetterX = AlphaBox[CipherText[i] - 'A'].x;
+		int FirstLetterY = AlphaBox[CipherText[i] - 'A'].y;
+		int SecondLetterX =
+		    AlphaBox[CipherText[i + 1] - 'A'].x;
+		int SecondLetterY =
+		    AlphaBox[CipherText[i + 1] - 'A'].y;
+
+		// the same row
+		if (FirstLetterY == SecondLetterY)
+		{
+			PlainText += Box[FirstLetterY]
+			                [(FirstLetterX - 1 + Box_Size) %
+			                 Box_Size];
+			PlainText +=
+			    Box[SecondLetterY]
+			       [(SecondLetterX - 1 + Box_Size) %
+			        Box_Size];
+		}
+		else if (FirstLetterX ==
+		         SecondLetterX) // the same column
+		{
+			PlainText += Box[(FirstLetterY - 1 + Box_Size) %
+			                 Box_Size][FirstLetterX];
+			PlainText +=
+			    Box[(SecondLetterY - 1 + Box_Size) %
+			        Box_Size][SecondLetterX];
+		}
+		else
+		{
+			PlainText += Box[SecondLetterY][FirstLetterX];
+			PlainText += Box[FirstLetterY][SecondLetterX];
+		}
+	}
+
+	return PlainText;
 }
