@@ -41,6 +41,8 @@ public:
 	void WriteBoxToFile();
 	// hash alpha
 	void GenerateAlphaBox();
+
+	// For debug
 	void ShowAlphaBox();
 
 	// Operate PlainText

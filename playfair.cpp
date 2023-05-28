@@ -1,7 +1,5 @@
 #include "playfair.h"
 
-
-
 void PlayFair::ReadinBoxFromFile(string FilePath)
 {
 	std::ifstream fin;
@@ -22,8 +20,14 @@ void PlayFair::ReadinBoxFromFile(string FilePath)
 void PlayFair::TypeinBox()
 {
 	for (int i = 0; i < Box_Size; i++)
+	{
 		for (int j = 0; j < Box_Size; j++)
-			std::cin >> Box[i][j];
+		{
+			char ch;
+			std::cin >> ch;
+			Box[i][j] = std::toupper(ch);
+		}
+	}
 	return;
 }
 
