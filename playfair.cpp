@@ -14,6 +14,8 @@ void PlayFair::ReadinBoxFromFile(string FilePath)
 		}
 	}
 	fin.close();
+	Box_Empty = false;
+	GenerateAlphaBox();
 	return;
 }
 
@@ -28,6 +30,8 @@ void PlayFair::TypeinBox()
 			Box[i][j] = std::toupper(ch);
 		}
 	}
+	Box_Empty = false;
+	GenerateAlphaBox();
 	return;
 }
 
@@ -52,6 +56,9 @@ void PlayFair::GenerateBox()
 			    Num + 'A'; // write in alpha from A to Z
 		}
 	}
+	Box_Empty = false;
+	GenerateAlphaBox();
+	return;
 }
 
 void PlayFair::ShowBox()
@@ -92,6 +99,7 @@ void PlayFair::GenerateAlphaBox()
 			AlphaBox[index].y = i;
 		}
 	}
+	return;
 }
 
 void PlayFair::ShowAlphaBox()
@@ -130,19 +138,8 @@ string PlayFair::Preprocess(string PlainText)
 string PlayFair::EnCode(string pt)
 {
 	// judge if the Box is empty
-	int Count = 0;
-	for (int i = 0; i < Box_Size; i++)
-	{
-		for (int j = 0; j < Box_Size; j++)
-		{
-			if (Box[i][j] == 0)
-				Count++;
-			if (Count > 2) // the Box is empty
-				return "The Box is empty!";
-		}
-	}
-
-	GenerateAlphaBox(); // Generate alpha box
+	if (Box_Empty)
+		return "The Box is empty!";
 
 	string CipherText = "";
 	string PlainText = Preprocess(pt);
@@ -186,19 +183,8 @@ string PlayFair::EnCode(string pt)
 
 string PlayFair::DeCode(string ct)
 {
-	int Count = 0;
-	for (int i = 0; i < Box_Size; i++)
-	{
-		for (int j = 0; j < Box_Size; j++)
-		{
-			if (Box[i][j] == 0)
-				Count++;
-			if (Count > 2) // the Box is empty
-				return "The Box is empty!";
-		}
-	}
-
-	GenerateAlphaBox(); // Generate alpha box
+	if (Box_Empty)
+		return "The Box is empty!";
 
 	string CipherText = Preprocess(ct);
 	string PlainText = "";

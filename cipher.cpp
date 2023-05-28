@@ -5,4 +5,7 @@
 
 int main(void)
 {
+	PlayFair playfair;
+	playfair.ReadinBoxFromFile("./test.txt");
+	std::cout << playfair.EnCode("abc");
 }
