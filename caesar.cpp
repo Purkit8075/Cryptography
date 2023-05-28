@@ -32,10 +32,7 @@ string Caesar::DeCode(string CipherText, int index)
 		           index + 26) %
 		              26 +
 		          'A';
-		// if (std::toupper(CipherText[i]) - 'A' - index <
-		// 0) 	ch = std::toupper(CipherText[i] - index +
-		// 26); else 	ch = std::toupper(CipherText[i]) -
-		// index;
+
 		PlainText += ch;
 	}
 	return PlainText;
