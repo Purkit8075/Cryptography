@@ -23,7 +23,7 @@ private:
 	// every alpha's location in Box
 	Point AlphaBox[26] = {0};
 
-	bool Box_Empty = true;
+	bool Box_Empty = true; // Judge if the box is empty
 
 public:
 	/*Constructor*/
