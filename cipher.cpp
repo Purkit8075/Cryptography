@@ -7,5 +7,6 @@ int main(void)
 {
 	PlayFair playfair;
 	playfair.ReadinBoxFromFile("./test.txt");
-	std::cout << playfair.EnCode("abc");
+	std::cout << playfair.EnCode("qq") << '\n';
+	std::cout << playfair.DeCode(playfair.EnCode("qq"));
 }

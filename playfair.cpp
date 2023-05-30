@@ -118,19 +118,37 @@ string PlayFair::Preprocess(string PlainText)
 	string AfterPreprocess = "";
 	// remove not alpha char
 	for (int i = 0; i < PlainText.length(); i++)
-		if (std::isalpha(PlainText[i]) &&
-		    PlainText[i] != 'Q' && PlainText[i] != 'q')
-			AfterPreprocess += std::toupper(PlainText[i]);
+	{
+		if (std::isalpha(PlainText[i]))
+		{
+			if (PlainText[i] != 'Q' && PlainText[i] != 'q')
+				AfterPreprocess +=
+				    std::toupper(PlainText[i]);
+			else
+				AfterPreprocess += 'Z';
+		}
+	}
 
 	// use Z to separate the same alpha
 	for (int i = 1; i < AfterPreprocess.length(); i++)
+	{
 		if (std::toupper(AfterPreprocess[i - 1]) ==
 		    std::toupper(AfterPreprocess[i]))
-			AfterPreprocess.insert(i, "Z");
+		{
+			if (std::toupper(AfterPreprocess[i] == 'Z'))
+				AfterPreprocess.insert(i, "H");
+			else
+				AfterPreprocess.insert(i, "Z");
+		}
+	}
 
 	// use Z to make the PlainText.length() to even
 	if (AfterPreprocess.length() % 2)
-		AfterPreprocess += 'Z';
+		AfterPreprocess +=
+		    ((AfterPreprocess[AfterPreprocess.length()] ==
+		      'Z')
+		         ? 'Q'
+		         : 'Z');
 
 	return AfterPreprocess;
 }
@@ -146,6 +164,7 @@ string PlayFair::EnCode(string pt)
 
 	for (int i = 0; i < PlainText.length(); i += 2)
 	{
+		// Get letter location
 		int FirstLetterX = AlphaBox[PlainText[i] - 'A'].x;
 		int FirstLetterY = AlphaBox[PlainText[i] - 'A'].y;
 		int SecondLetterX =
@@ -191,6 +210,7 @@ string PlayFair::DeCode(string ct)
 
 	for (int i = 0; i < CipherText.length(); i += 2)
 	{
+		// Get letter location
 		int FirstLetterX = AlphaBox[CipherText[i] - 'A'].x;
 		int FirstLetterY = AlphaBox[CipherText[i] - 'A'].y;
 		int SecondLetterX =
