@@ -1,7 +1,3 @@
-A B C D E
-F G H I J 
-K L M N O 
-P Z R S T
-U V W X Y
-
-AO -> KE
+a b c 
+a b c 
+b d f 
