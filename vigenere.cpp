@@ -31,17 +31,17 @@ void Vignere::InputSecureKey()
 void Vignere::ReadSecureKeyFromFile(string FilePath)
 {
 	std::ifstream fin;
-	fin.open(FilePath.c_str());
-	string ReadString = "";
+	fin.open(FilePath.c_str()); // open file
+	string ReadString = "";     // init strings
 	string ResultString = "";
 
 	while (!fin.eof())
 	{
-		std::getline(fin, ReadString);
-		ResultString += ReadString;
+		std::getline(fin, ReadString); // read a line of key
+		ResultString += ReadString;    // add to result key
 	}
 
-	fin.close();
+	fin.close(); // close file
 
 	for (int i = 0; i < ResultString.length(); i++)
 		if (std::isalpha(ResultString[i]))
@@ -51,21 +51,25 @@ void Vignere::ReadSecureKeyFromFile(string FilePath)
 
 void Vignere::RandomKey(int Len)
 {
-	std::srand(std::time(0));
+	std::srand(std::time(0)); // set random seed
 	for (int i = 0; i < Len; i++)
-		SecureKey += (std::rand() % 26) + 'A';
+		SecureKey +=
+		    (std::rand() % 26) + 'A'; // generate key
 	return;
 }
 
 string Vignere::EnCode(string PlainText)
 {
-	if (SecureKeyEmpty())
+	if (SecureKeyEmpty()) // if empty, return waring
 		return EmptyWarning;
 
 	string CipherText = "";
 	int    KeyLength = SecureKey.length();
 	for (int i = 0; i < PlainText.length(); i++)
 	{
+		if (!std::isalpha(PlainText[i]))
+			continue;
+
 		string temp = "";
 		temp += PlainText[i];
 		CipherText += caesar.EnCode(

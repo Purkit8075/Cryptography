@@ -7,9 +7,9 @@
 int main(void)
 {
 	// std::string key = "purkit";
-	std::string s = "purkit";
+	std::string s = "purkit1234";
 	Vignere     vig;
-	vig.ReadSecureKeyFromFile("./test.txt");
+	// vig.ReadSecureKeyFromFile("./test.txt");
 	// vig.ShowSecureKey();
 	// vig.RandomKey(100);
 	std::cout << vig.EnCode(s) << '\n';

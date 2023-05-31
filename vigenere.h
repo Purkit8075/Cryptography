@@ -8,10 +8,10 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-
-#define EmptyWarning "The secure key is empty!"
-
 using std::string;
+
+static const char * EmptyWarning =
+    "The secure key is empty!";
 
 class Vignere
 {
