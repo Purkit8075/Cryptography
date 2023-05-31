@@ -88,6 +88,8 @@ string Vignere::DeCode(string CipherText)
 
 	for (int i = 0; i < CipherText.length(); i++)
 	{
+		if (!std::isalpha(CipherText[i]))
+			continue;
 		string temp = "";
 		temp += CipherText[i];
 		PlainText += caesar.DeCode(
