@@ -6,9 +6,12 @@
 
 int main(void)
 {
-	std::string key = "purkit";
+	// std::string key = "purkit";
 	std::string s = "purkit";
-	Vignere     vig(key);
+	Vignere     vig;
+	vig.ReadSecureKeyFromFile("./test.txt");
+	// vig.ShowSecureKey();
+	// vig.RandomKey(100);
 	std::cout << vig.EnCode(s) << '\n';
 	std::cout << vig.DeCode(vig.EnCode(s)) << '\n';
 	return 0;

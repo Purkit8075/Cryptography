@@ -4,7 +4,9 @@
 
 Vignere::Vignere(string sk)
 {
-	SecureKey = "";
+	SecureKey = ""; // init SecureKey
+
+	// if is alpha add to SecureKey
 	for (int i = 0; i < sk.length(); i++)
 		if (std::isalpha(sk[i]))
 			SecureKey += std::toupper(sk[i]);
@@ -17,8 +19,8 @@ Vignere::Vignere()
 
 void Vignere::InputSecureKey()
 {
-	string sk = "";
-	std::cin >> sk;
+	string sk = ""; // init
+	std::cin >> sk; // read from keyboard
 	for (int i = 0; i < sk.length(); i++)
 		if (std::isalpha(sk[i]))
 			SecureKey += std::toupper(sk[i]);
@@ -35,14 +37,15 @@ void Vignere::ReadSecureKeyFromFile(string FilePath)
 
 	while (!fin.eof())
 	{
-		fin >> ReadString;
-		ResultString += ResultString;
+		std::getline(fin, ReadString);
+		ResultString += ReadString;
 	}
+
+	fin.close();
 
 	for (int i = 0; i < ResultString.length(); i++)
 		if (std::isalpha(ResultString[i]))
 			SecureKey += std::toupper(ResultString[i]);
-
 	return;
 }
 

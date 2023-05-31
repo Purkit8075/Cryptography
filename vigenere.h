@@ -40,6 +40,9 @@ public:
 
 	// Decode
 	string DeCode(string CipherText);
+
+	// For Debug
+	void ShowSecureKey() { std::cout << SecureKey << '\n'; }
 };
 
 #endif //!_VIGENERE_H_
