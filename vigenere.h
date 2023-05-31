@@ -30,7 +30,7 @@ public:
 	// read key from file
 	void ReadSecureKeyFromFile(string FilePath);
 	// random key
-	void RandomKey(int Len = 4);
+	void RandomKey(int Len = 4); // default key length
 
 	// judge securekey is empty or not
 	bool SecureKeyEmpty() { return !SecureKey.length(); }
