@@ -8,7 +8,7 @@
 int main(void)
 {
 	Vernam      ver;
-	std::string s = "";
+	std::string s = "中文";
 	std::cout << ver.EnCode(s) << '\n';
 	ver.ShowSecureKey();
 	std::cout << ver.DeCode(ver.EnCode(s)) << '\n';
