@@ -12,4 +12,7 @@ public:
 	string DeCode(string CipherText, int index = 4);
 };
 
+void CaesarMain();
+void CaesarMenu();
+
 #endif //!_CAESAR_H_

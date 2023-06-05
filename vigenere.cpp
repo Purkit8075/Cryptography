@@ -51,10 +51,9 @@ void Vignere::ReadSecureKeyFromFile(string FilePath)
 
 void Vignere::RandomKey(int Len)
 {
-	std::srand(std::time(0)); // set random seed
+	std::srand(std::time(0));                  // set random seed
 	for (int i = 0; i < Len; i++)
-		SecureKey +=
-		    (std::rand() % 26) + 'A'; // generate key
+		SecureKey += (std::rand() % 26) + 'A'; // generate key
 	return;
 }
 
@@ -72,8 +71,7 @@ string Vignere::EnCode(string PlainText)
 
 		string temp = "";
 		temp += PlainText[i];
-		CipherText += caesar.EnCode(
-		    temp, SecureKey[i % KeyLength] - 'A' + 1);
+		CipherText += caesar.EnCode(temp, SecureKey[i % KeyLength] - 'A' + 1);
 	}
 	return CipherText;
 }
@@ -92,8 +90,7 @@ string Vignere::DeCode(string CipherText)
 			continue;
 		string temp = "";
 		temp += CipherText[i];
-		PlainText += caesar.DeCode(
-		    temp, SecureKey[i % KeyLength] - 'A' + 1);
+		PlainText += caesar.DeCode(temp, SecureKey[i % KeyLength] - 'A' + 1);
 	}
 	return PlainText;
 }

@@ -52,8 +52,7 @@ void PlayFair::GenerateBox()
 				Num = rand() % 26; // continue to select
 			}
 			Flag[Num] = 1;         // mark the alpha
-			Box[i][j] =
-			    Num + 'A'; // write in alpha from A to Z
+			Box[i][j] = Num + 'A'; // write in alpha from A to Z
 		}
 	}
 	Box_Empty = false;
@@ -105,8 +104,8 @@ void PlayFair::GenerateAlphaBox()
 void PlayFair::ShowAlphaBox()
 {
 	for (int i = 0; i < 26; i++)
-		std::cout << (char)(i + 'A') << " " << AlphaBox[i].x
-		          << " " << AlphaBox[i].y << '\n';
+		std::cout << (char)(i + 'A') << " " << AlphaBox[i].x << " "
+		          << AlphaBox[i].y << '\n';
 
 	std::cout << AlphaBox['A' - 'A'].y << '\n';
 	std::cout << AlphaBox['B' - 'A'].y << '\n';
@@ -122,8 +121,7 @@ string PlayFair::Preprocess(string PlainText)
 		if (std::isalpha(PlainText[i]))
 		{
 			if (PlainText[i] != 'Q' && PlainText[i] != 'q')
-				AfterPreprocess +=
-				    std::toupper(PlainText[i]);
+				AfterPreprocess += std::toupper(PlainText[i]);
 			else
 				AfterPreprocess += 'Z';
 		}
@@ -145,10 +143,7 @@ string PlayFair::Preprocess(string PlainText)
 	// use Z to make the PlainText.length() to even
 	if (AfterPreprocess.length() % 2)
 		AfterPreprocess +=
-		    ((AfterPreprocess[AfterPreprocess.length()] ==
-		      'Z')
-		         ? 'Q'
-		         : 'Z');
+		    ((AfterPreprocess[AfterPreprocess.length()] == 'Z') ? 'Q' : 'Z');
 
 	return AfterPreprocess;
 }
@@ -167,28 +162,19 @@ string PlayFair::EnCode(string pt)
 		// Get letter location
 		int FirstLetterX = AlphaBox[PlainText[i] - 'A'].x;
 		int FirstLetterY = AlphaBox[PlainText[i] - 'A'].y;
-		int SecondLetterX =
-		    AlphaBox[PlainText[i + 1] - 'A'].x;
-		int SecondLetterY =
-		    AlphaBox[PlainText[i + 1] - 'A'].y;
+		int SecondLetterX = AlphaBox[PlainText[i + 1] - 'A'].x;
+		int SecondLetterY = AlphaBox[PlainText[i + 1] - 'A'].y;
 
 		// the same row
 		if (FirstLetterY == SecondLetterY)
 		{
-			CipherText +=
-			    Box[FirstLetterY]
-			       [(FirstLetterX + 1) % Box_Size];
-			CipherText +=
-			    Box[SecondLetterY]
-			       [(SecondLetterX + 1) % Box_Size];
+			CipherText += Box[FirstLetterY][(FirstLetterX + 1) % Box_Size];
+			CipherText += Box[SecondLetterY][(SecondLetterX + 1) % Box_Size];
 		}
-		else if (FirstLetterX ==
-		         SecondLetterX) // the same column
+		else if (FirstLetterX == SecondLetterX) // the same column
 		{
-			CipherText += Box[(FirstLetterY + 1) % Box_Size]
-			                 [FirstLetterX];
-			CipherText += Box[(SecondLetterY + 1) %
-			                  Box_Size][SecondLetterX];
+			CipherText += Box[(FirstLetterY + 1) % Box_Size][FirstLetterX];
+			CipherText += Box[(SecondLetterY + 1) % Box_Size][SecondLetterX];
 		}
 		else
 		{
@@ -213,30 +199,23 @@ string PlayFair::DeCode(string ct)
 		// Get letter location
 		int FirstLetterX = AlphaBox[CipherText[i] - 'A'].x;
 		int FirstLetterY = AlphaBox[CipherText[i] - 'A'].y;
-		int SecondLetterX =
-		    AlphaBox[CipherText[i + 1] - 'A'].x;
-		int SecondLetterY =
-		    AlphaBox[CipherText[i + 1] - 'A'].y;
+		int SecondLetterX = AlphaBox[CipherText[i + 1] - 'A'].x;
+		int SecondLetterY = AlphaBox[CipherText[i + 1] - 'A'].y;
 
 		// the same row
 		if (FirstLetterY == SecondLetterY)
 		{
-			PlainText += Box[FirstLetterY]
-			                [(FirstLetterX - 1 + Box_Size) %
-			                 Box_Size];
 			PlainText +=
-			    Box[SecondLetterY]
-			       [(SecondLetterX - 1 + Box_Size) %
-			        Box_Size];
+			    Box[FirstLetterY][(FirstLetterX - 1 + Box_Size) % Box_Size];
+			PlainText +=
+			    Box[SecondLetterY][(SecondLetterX - 1 + Box_Size) % Box_Size];
 		}
-		else if (FirstLetterX ==
-		         SecondLetterX) // the same column
+		else if (FirstLetterX == SecondLetterX) // the same column
 		{
-			PlainText += Box[(FirstLetterY - 1 + Box_Size) %
-			                 Box_Size][FirstLetterX];
 			PlainText +=
-			    Box[(SecondLetterY - 1 + Box_Size) %
-			        Box_Size][SecondLetterX];
+			    Box[(FirstLetterY - 1 + Box_Size) % Box_Size][FirstLetterX];
+			PlainText +=
+			    Box[(SecondLetterY - 1 + Box_Size) % Box_Size][SecondLetterX];
 		}
 		else
 		{
