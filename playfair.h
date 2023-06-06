@@ -26,8 +26,6 @@ private:
 	bool Box_Empty = true; // Judge if the box is empty
 
 public:
-	/*Constructor*/
-
 	/*Get Box Methods*/
 	// Read from file
 	void ReadinBoxFromFile(string FilePath);
