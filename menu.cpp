@@ -28,11 +28,18 @@ void Menu::PrintInCenterSpace(string CenterString)
 	return;
 }
 
-void Menu::PrintChoice(int Number, string Choice, ...)
+void Menu::PrintChoice(int Count, ...)
 {
-	for (int i = 1; i <= Number; i++)
+	va_list args;
+	va_start(args, Count);
+
+	for (int i = 0; i < Count; i++)
 	{
-		std::cout << "[" << i << "]"
-		          << " " << Choice[i] << '\n';
+		char * arg = va_arg(args, char *);
+		std::cout << "[" << i + 1 << "]"
+		          << " ";
+		std::cout << arg << '\n';
 	}
+
+	va_end(args);
 }

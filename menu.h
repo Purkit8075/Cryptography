@@ -2,6 +2,7 @@
 #define _MENU_H_
 
 #include <iostream>
+#include <stdarg.h>
 #include <string>
 using std::string;
 
@@ -24,7 +25,8 @@ public:
 	void PrintLine(char LineChar = -1);
 	void PrintTitle(string Title);
 	void PrintInCenterSpace(string CenterString);
-	void PrintChoice(int Number, string Choice, ...);
+	void PrintChoice(int Count, ...);
+	void PrintFoot() { PrintTitle("Powered by Purkit"); }
 };
 
 #endif //!_MENU_H_
