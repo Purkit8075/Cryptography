@@ -1,6 +1,7 @@
 #ifndef _PLAYFAIR_H_
 #define _PLAYFAIR_H_
 
+#include "menu.h"
 #include <cctype>
 #include <ctime>
 #include <fstream>
@@ -39,7 +40,7 @@ public:
 	void ShowBox();
 	// Write Box to file
 	void WriteBoxToFile();
-	// hash alpha
+	// record alpha location
 	void GenerateAlphaBox();
 
 	// For debug
@@ -53,5 +54,7 @@ public:
 	// Decode
 	string DeCode(string ct);
 };
+
+void ShowPlayFairMenu();
 
 #endif //!_PLAYFAIR_H_
