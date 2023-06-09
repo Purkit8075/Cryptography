@@ -1,6 +1,7 @@
 #ifndef _CAESAR_H_
 #define _CAESAR_H_
 
+#include "menu.h"
 #include <cctype>
 #include <string>
 using std::string;
@@ -13,6 +14,6 @@ public:
 };
 
 void CaesarMain();
-void CaesarMenu();
+void ShowCaesarMenu();
 
 #endif //!_CAESAR_H_
