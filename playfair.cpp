@@ -143,7 +143,8 @@ string PlayFair::Preprocess(string PlainText)
 	// use Z to make the PlainText.length() to even
 	if (AfterPreprocess.length() % 2)
 		AfterPreprocess +=
-		    ((AfterPreprocess[AfterPreprocess.length()] == 'Z') ? 'Q' : 'Z');
+		    ((AfterPreprocess[AfterPreprocess.length() - 1] == 'Z') ? 'H'
+		                                                            : 'Z');
 
 	return AfterPreprocess;
 }
@@ -225,4 +226,15 @@ string PlayFair::DeCode(string ct)
 	}
 
 	return PlainText;
+}
+
+void ShowPlayFairMenu()
+{
+	Menu menu(40);
+
+	menu.PrintTitle("PlayFair");
+	menu.PrintChoice(8, "EnCode", "DeCode", "Input box", "Generate box",
+	                 "Read box from file", "Show box", "Write box to file",
+	                 "Quit");
+	menu.PrintFoot();
 }
