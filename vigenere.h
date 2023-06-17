@@ -10,8 +10,7 @@
 #include <string>
 using std::string;
 
-static const char * EmptyWarning =
-    "The secure key is empty!";
+static const char * EmptyWarning = "The secure key is empty!";
 
 class Vignere
 {
@@ -41,7 +40,7 @@ public:
 	// Decode
 	string DeCode(string CipherText);
 
-	// For Debug
+	// Show SerucreKey
 	void ShowSecureKey() { std::cout << SecureKey << '\n'; }
 };
 
