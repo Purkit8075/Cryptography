@@ -1,6 +1,7 @@
 #ifndef _CAESAR_H_
 #define _CAESAR_H_
 
+#include "criptographylist.h"
 #include "menu.h"
 #include <cctype>
 #include <string>
@@ -13,7 +14,7 @@ public:
 	string DeCode(string CipherText, int index = 4);
 };
 
-void CaesarMain();
+void CaesarMain(string Operation, string Text, int Index = 4);
 void ShowCaesarMenu();
 
 #endif //!_CAESAR_H_

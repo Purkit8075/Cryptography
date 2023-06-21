@@ -35,59 +35,32 @@ string Caesar::DeCode(string CipherText, int index)
 	return PlainText;
 }
 
-void CaesarMain()
+void CaesarMain(string Operation, string Text, int Index)
 {
 	using std::cout;
 
+	static const int OperationSize = 2;
+	static string    OperationType[OperationSize] = {"encode", "decode"};
+
+	int    Type = ErrorValue;
 	Caesar caesar;
 
-	while (true)
+	for (int i = 0; i < OperationSize; i++)
+		if (Operation == OperationType[i])
+			Type = i;
+
+	if (Type == ErrorValue)
 	{
-		ShowCaesarMenu();
-		int    CaesarChoice = 0;
-		string Text = "";
-		int    Index = 0;
-
-		std::cin >> CaesarChoice;
-
-		switch (CaesarChoice)
-		{
-			case 1:
-			{
-				cout << "Please input PlainText:\n";
-				std::getchar();
-				std::getline(std::cin, Text);
-				cout << "Please enter the Key Number:\n";
-				std::cin >> Index;
-				cout << "The CipherText is:\n";
-				cout << caesar.EnCode(Text, Index) << '\n';
-				std::getchar();
-				std::getchar();
-				break;
-			}
-			case 2:
-			{
-				cout << "Please input CipherText:\n";
-				std::getchar();
-				std::getline(std::cin, Text);
-				cout << "Please enter the Key Number:\n";
-				std::cin >> Index;
-				cout << "The PlainText is:\n";
-				cout << caesar.DeCode(Text, Index) << '\n';
-				std::getchar();
-				std::getchar();
-				break;
-			}
-			case 3:
-			{
-				return;
-			}
-			default:
-			{
-				cout << "Please input the right choice!\n";
-			}
-		}
+		cout << ErrorOperation;
+		return;
 	}
+
+	if (Type == ENCODE)
+		cout << caesar.EnCode(Text, Index) << '\n';
+	else
+		cout << caesar.DeCode(Text, Index) << '\n';
+
+	return;
 }
 
 void ShowCaesarMenu()
