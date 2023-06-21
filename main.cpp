@@ -15,49 +15,14 @@ int main(int argc, char * argv[])
 {
 	using std::cout;
 	using std::string;
-	// while (true)
-	// {
-	// 	PrintMainMenu();
-	// 	int Choice = 0;
-	// 	std::cin >> Choice;
-
-	// 	switch (Choice)
-	// 	{
-	// 		case 1:
-	// 			CaesarMain();
-	// 			break;
-	// 	}
-
-	// 	system("clear");
-	// }
 
 	int CriphtographyType = JudgeEncryptionType(argv[1]);
-	// string EncryptionOperation = UpperStringToLowerString(argv[2]);
 
 	if (CriphtographyType == ErrorValue)
 	{
 		cout << "Please input right encryption method\n";
 		return 0;
 	}
-	// bool InputRightCriphtographyType = false;
-
-	// string CriphtographyTypeString = UpperStringToLowerString(argv[1]);
-
-	// for (int i = 0; i < sizeof(CriptographyList) / sizeof(string); i++)
-	// {
-	// 	if (CriphtographyTypeString == CriptographyList[i])
-	// 	{
-	// 		CriphtographyType = i;
-	// 		InputRightCriphtographyType = true;
-	// 		break;
-	// 	}
-	// }
-
-	// if (!InputRightCriphtographyType)
-	// {
-	// 	cout << "Please input right criphtography type!\n";
-	// 	return 0;
-	// }
 
 	switch (CriphtographyType)
 	{
