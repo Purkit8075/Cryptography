@@ -7,28 +7,83 @@
 #include <string>
 
 std::string UpperStringToLowerString(std::string s);
-
-int JudgeEncryptionType(std::string Input);
-
-void PrintMainMenu();
+int         JudgeEncryptionType(std::string Input);
+void        PrintMainMenu();
+int         StringToInt(std::string s);
 
 int main(int argc, char * argv[])
 {
-	while (true)
+	using std::cout;
+	using std::string;
+	// while (true)
+	// {
+	// 	PrintMainMenu();
+	// 	int Choice = 0;
+	// 	std::cin >> Choice;
+
+	// 	switch (Choice)
+	// 	{
+	// 		case 1:
+	// 			CaesarMain();
+	// 			break;
+	// 	}
+
+	// 	system("clear");
+	// }
+
+	int CriphtographyType = JudgeEncryptionType(argv[1]);
+	// string EncryptionOperation = UpperStringToLowerString(argv[2]);
+
+	if (CriphtographyType == ErrorValue)
 	{
-		PrintMainMenu();
-		int Choice = 0;
-		std::cin >> Choice;
-
-		switch (Choice)
-		{
-			case 1:
-				CaesarMain();
-				break;
-		}
-
-		system("clear");
+		cout << "Please input right encryption method\n";
+		return 0;
 	}
+	// bool InputRightCriphtographyType = false;
+
+	// string CriphtographyTypeString = UpperStringToLowerString(argv[1]);
+
+	// for (int i = 0; i < sizeof(CriptographyList) / sizeof(string); i++)
+	// {
+	// 	if (CriphtographyTypeString == CriptographyList[i])
+	// 	{
+	// 		CriphtographyType = i;
+	// 		InputRightCriphtographyType = true;
+	// 		break;
+	// 	}
+	// }
+
+	// if (!InputRightCriphtographyType)
+	// {
+	// 	cout << "Please input right criphtography type!\n";
+	// 	return 0;
+	// }
+
+	switch (CriphtographyType)
+	{
+		case CAESAR:
+		{
+			CaesarMain(UpperStringToLowerString(argv[2]), argv[3],
+			           StringToInt(argv[4]));
+			break;
+		}
+		case PLAYFAIR:
+		{
+			cout << "playfair";
+			break;
+		}
+		case VIGENERE:
+		{
+			cout << "vigenere";
+			break;
+		}
+		case VERNAM:
+		{
+			cout << "vernam";
+			break;
+		}
+	}
+	return 0;
 }
 
 std::string UpperStringToLowerString(std::string s)
@@ -45,11 +100,9 @@ int JudgeEncryptionType(std::string Input)
 {
 	std::string input = UpperStringToLowerString(Input);
 
-	for (int i = 0; i < sizeof(CriptographyList) / sizeof(const std::string);
-	     i++)
+	for (int i = 0; i < sizeof(CriptographyList) / sizeof(std::string); i++)
 		if (input == CriptographyList[i])
 			return i;
-
 
 	return ErrorValue;
 }
@@ -64,4 +117,25 @@ void PrintMainMenu()
 	std::cout << "Please input your choice:\n";
 
 	return;
+}
+
+int StringToInt(std::string s)
+{
+	int  Ans = 0;
+	bool IsNegative = false;
+
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (!std::isalnum(s[i]))
+		{
+			if (i == 0 && s[i] == '-')
+				IsNegative = true;
+			else
+				return 0;
+		}
+		int Num = s[i] - '0';
+		Ans = Ans * 10 + Num;
+	}
+
+	return (IsNegative ? (Ans * -1) : Ans);
 }
