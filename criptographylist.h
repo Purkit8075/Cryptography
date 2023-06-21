@@ -16,7 +16,8 @@ using std::string;
 #define ENCODE 0
 #define DECODE 1
 
-const string CriptographyList[] = {"caesar", "playfair",
-                                   "vigenere", "vernam"};
+const string CriptographyList[] = {"caesar", "playfair", "vigenere", "vernam"};
+
+const string ErrorOperation = "Please input right operation!\n";
 
 #endif //!_CRIPTOGRAPHYLIST_H_
