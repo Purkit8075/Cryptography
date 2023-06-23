@@ -15,6 +15,5 @@ public:
 };
 
 void CaesarMain(string Operation, string Text, int Index = 4);
-void ShowCaesarMenu();
 
 #endif //!_CAESAR_H_

@@ -62,13 +62,3 @@ void CaesarMain(string Operation, string Text, int Index)
 
 	return;
 }
-
-void ShowCaesarMenu()
-{
-	Menu menu(40);
-	menu.PrintTitle("Caesar");
-	menu.PrintChoice(3, "EnCode", "DeCode", "Quit");
-	menu.PrintFoot();
-
-	return;
-}
