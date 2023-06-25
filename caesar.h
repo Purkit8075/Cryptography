@@ -14,6 +14,7 @@ public:
 	string DeCode(string CipherText, int index = 4);
 };
 
+// Caesar main function
 void CaesarMain(string Operation, string Text, int Index = 4);
 
 #endif //!_CAESAR_H_

@@ -39,22 +39,28 @@ void CaesarMain(string Operation, string Text, int Index)
 {
 	using std::cout;
 
-	static const int OperationSize = 2;
-	static string    OperationType[OperationSize] = {"encode", "decode"};
+	static const int OperationSize = 2; // count of operation
 
-	int    Type = ErrorValue;
+	// opeartion type list
+	static string OperationType[OperationSize] = {"encode", "decode"};
+
+	int    Type = ErrorValue; // default value
 	Caesar caesar;
 
+	// judge if the operation is right
 	for (int i = 0; i < OperationSize; i++)
 		if (Operation == OperationType[i])
 			Type = i;
 
+	// if the operation type is error
+	// print an error string and return
 	if (Type == ErrorValue)
 	{
 		cout << ErrorOperation;
 		return;
 	}
 
+	// encode and decode
 	if (Type == ENCODE)
 		cout << caesar.EnCode(Text, Index) << '\n';
 	else
