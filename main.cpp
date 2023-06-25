@@ -1,6 +1,7 @@
 #include "caesar.h"
 #include "criptographylist.h"
 #include "menu.h"
+#include "playfair.h"
 #include <cctype>
 #include <cstdlib>
 #include <iostream>
@@ -34,7 +35,8 @@ int main(int argc, char * argv[])
 		}
 		case PLAYFAIR:
 		{
-			cout << "playfair";
+			PlayfairMain(UpperStringToLowerString(argv[2]), argv[3],
+			             UpperStringToLowerString(argv[4]));
 			break;
 		}
 		case VIGENERE:
