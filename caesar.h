@@ -2,8 +2,8 @@
 #define _CAESAR_H_
 
 #include "criptographylist.h"
-#include "menu.h"
 #include <cctype>
+#include <iostream>
 #include <string>
 using std::string;
 
