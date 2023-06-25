@@ -15,6 +15,7 @@ using std::string;
 // Operation type
 #define ENCODE 0
 #define DECODE 1
+#define SETBOX 2
 
 const string CriptographyList[] = {"caesar", "playfair", "vigenere", "vernam"};
 
