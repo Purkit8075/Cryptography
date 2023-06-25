@@ -322,6 +322,18 @@ void PlayfairMain(string Operation, string Text, string ActionType)
 		return;
 	}
 
+	std::ifstream fin(BoxFilePath);
+	if (fin.fail())
+	{
+		// touch a new file
+		std::ofstream fout;
+		fout.open(BoxFilePath);
+		fout.close();
+		playfair.GenerateBox();
+		playfair.WriteBoxToFile();
+	}
+	fin.close();
+
 	playfair.ReadinBoxFromFile(BoxFilePath); // init box from file
 
 	if (ActionType == "true")                // if the last value is true

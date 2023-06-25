@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcryptography.a CMakeFiles/cryptography.dir/caesar.cpp.o CMakeFiles/cryptography.dir/menu.cpp.o CMakeFiles/cryptography.dir/playfair.cpp.o CMakeFiles/cryptography.dir/vernam.cpp.o CMakeFiles/cryptography.dir/vigenere.cpp.o
+/usr/bin/ranlib libcryptography.a

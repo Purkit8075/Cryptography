@@ -1,8 +1,8 @@
-#include "caesar.h"
-#include "criptographylist.h"
-#include "menu.h"
-#include "playfair.h"
-#include "vigenere.h"
+#include "include/caesar.h"
+#include "include/criptographylist.h"
+#include "include/menu.h"
+#include "include/playfair.h"
+#include "include/vigenere.h"
 #include <cctype>
 #include <cstdlib>
 #include <iostream>

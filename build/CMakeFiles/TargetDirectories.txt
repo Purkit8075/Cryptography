@@ -1,0 +1,6 @@
+/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles/main.dir
+/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles/edit_cache.dir
+/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles/rebuild_cache.dir
+/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include/CMakeFiles/cryptography.dir
+/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include/CMakeFiles/edit_cache.dir
+/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include/CMakeFiles/rebuild_cache.dir
