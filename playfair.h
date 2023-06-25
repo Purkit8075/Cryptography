@@ -1,6 +1,7 @@
 #ifndef _PLAYFAIR_H_
 #define _PLAYFAIR_H_
 
+#include "criptographylist.h"
 #include "menu.h"
 #include <cctype>
 #include <ctime>
@@ -55,6 +56,8 @@ public:
 	string DeCode(string ct);
 };
 
-void ShowPlayFairMenu();
+void PrintBoxMenu();
+void PlayfairBoxAction(PlayFair & pf);
+void PlayfairMain(string Operation, string Text, string ActionType = "false");
 
 #endif //!_PLAYFAIR_H_
