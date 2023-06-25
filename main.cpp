@@ -2,6 +2,7 @@
 #include "criptographylist.h"
 #include "menu.h"
 #include "playfair.h"
+#include "vigenere.h"
 #include <cctype>
 #include <cstdlib>
 #include <iostream>
@@ -42,7 +43,7 @@ int main(int argc, char * argv[])
 		}
 		case VIGENERE:
 		{
-			cout << "vigenere";
+			VigenereMain(UpperStringToLowerString(argv[2]), argv[3], argv[4]);
 			break;
 		}
 		case VERNAM:
