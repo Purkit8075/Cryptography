@@ -29,7 +29,7 @@ int main(int argc, char * argv[])
 		case CAESAR:
 		{
 			CaesarMain(UpperStringToLowerString(argv[2]), argv[3],
-			           StringToInt(argv[4]));
+			           (argc == 5 ? StringToInt(argv[4]) : 4));
 			break;
 		}
 		case PLAYFAIR:
