@@ -228,13 +228,109 @@ string PlayFair::DeCode(string ct)
 	return PlainText;
 }
 
-void ShowPlayFairMenu()
+void PrintBoxMenu()
 {
-	Menu menu(40);
+	Menu BoxMenu(25);
+	BoxMenu.PrintTitle("Box Action");
+	BoxMenu.PrintChoice(4, "Generate Box", "Type in Box", "Read Box from file",
+	                    "Quit");
+	BoxMenu.PrintFoot();
+	return;
+}
 
-	menu.PrintTitle("PlayFair");
-	menu.PrintChoice(8, "EnCode", "DeCode", "Input box", "Generate box",
-	                 "Read box from file", "Show box", "Write box to file",
-	                 "Quit");
-	menu.PrintFoot();
+void PlayfairBoxAction(PlayFair & pf)
+{
+	const int GENERATEBOX = 1;
+	const int TYPEINBOX = 2;
+	const int READFROMFILE = 3;
+	const int QUIT = 4;
+	int       ActionChoice = ErrorValue;
+
+	while (true)
+	{
+		std::system("clear");
+		PrintBoxMenu();
+		std::cin >> ActionChoice;
+		switch (ActionChoice)
+		{
+			case GENERATEBOX:
+			{
+				pf.GenerateBox();
+				pf.WriteBoxToFile();
+				return;
+			}
+			case TYPEINBOX:
+			{
+				pf.TypeinBox();
+				pf.WriteBoxToFile();
+				return;
+			}
+			case READFROMFILE:
+			{
+				string ReadFilePath = "";
+				std::cout << "Please input file path:\n";
+				std::cin >> ReadFilePath;
+
+				std::ifstream fin(ReadFilePath);
+
+				if (!fin.fail())
+				{
+					pf.ReadinBoxFromFile(ReadFilePath);
+					pf.WriteBoxToFile();
+					return;
+				}
+				else
+				{
+					std::cout << "The file is not existed,please input the "
+					             "path after you check.\n";
+					std::getchar();
+					std::getchar();
+					continue;
+				}
+			}
+			case QUIT:
+				return;
+			default:
+				std::cout << "Please input right choice.\n";
+				break;
+		}
+	}
+}
+
+void PlayfairMain(string Operation, string Text, string ActionType)
+{
+	using std::cout;
+
+	PlayFair playfair;
+
+	const int    OperationSize = 3;
+	const string OperationType[OperationSize] = {"encode", "decode", "setbox"};
+	const string BoxFilePath = "./PlayFairBox.txt";
+
+	int Type = ErrorValue;
+
+	for (int i = 0; i < OperationSize; i++)
+		if (Operation == OperationType[i])
+			Type = i;
+
+	if (Type == ErrorValue)
+	{
+		cout << ErrorOperation;
+		return;
+	}
+
+	playfair.ReadinBoxFromFile(BoxFilePath);
+
+	if (ActionType == "true")
+		PlayfairBoxAction(playfair);
+
+	switch (Type)
+	{
+		case ENCODE:
+			cout << playfair.EnCode(Text) << '\n';
+			break;
+		case DECODE:
+			cout << playfair.DeCode(Text) << '\n';
+			break;
+	}
 }
