@@ -2,6 +2,7 @@
 #define _VIGENERE_H_
 
 #include "caesar.h"
+#include "criptographylist.h"
 #include <cctype>
 #include <cstdlib>
 #include <ctime>
@@ -45,5 +46,7 @@ public:
 	// Show SerucreKey
 	void ShowSecureKey() { std::cout << SecureKey << '\n'; }
 };
+
+void VigenereMain(string Operation, string Text, string Key);
 
 #endif //!_VIGENERE_H_

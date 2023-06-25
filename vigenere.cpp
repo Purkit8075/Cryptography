@@ -94,3 +94,36 @@ string Vignere::DeCode(string CipherText)
 	}
 	return PlainText;
 }
+
+void VigenereMain(string Operation, string Text, string Key)
+{
+	using std::cout;
+
+	Vignere vig;
+	vig.ResetSecureKey(Key);
+
+	const int    OperationSize = 2;
+	const string OperationType[OperationSize] = {"encode", "decode"};
+
+	int Type = ErrorValue;
+
+	for (int i = 0; i < OperationSize; i++)
+		if (Operation == OperationType[i])
+			Type = i;
+
+	if (Type == ErrorValue)
+	{
+		cout << ErrorOperation;
+		return;
+	}
+
+	switch (Type)
+	{
+		case ENCODE:
+			cout << vig.EnCode(Text) << '\n';
+			break;
+		case DECODE:
+			cout << vig.DeCode(Text) << '\n';
+			break;
+	}
+}
