@@ -9,7 +9,6 @@
 
 std::string UpperStringToLowerString(std::string s);
 int         JudgeEncryptionType(std::string Input);
-void        PrintMainMenu();
 int         StringToInt(std::string s);
 
 int main(int argc, char * argv[])
@@ -74,18 +73,6 @@ int JudgeEncryptionType(std::string Input)
 			return i;
 
 	return ErrorValue;
-}
-
-void PrintMainMenu()
-{
-	Menu menu(40);
-	menu.PrintTitle("Methods");
-	menu.PrintChoice(5, "Caesar", "PlayFair", "Vigenere", "Vernam", "Quit");
-	menu.PrintFoot();
-
-	std::cout << "Please input your choice:\n";
-
-	return;
 }
 
 int StringToInt(std::string s)
