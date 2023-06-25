@@ -56,8 +56,11 @@ public:
 	string DeCode(string ct);
 };
 
+// Box action menu
 void PrintBoxMenu();
+// Box action
 void PlayfairBoxAction(PlayFair & pf);
+// playfair main function
 void PlayfairMain(string Operation, string Text, string ActionType = "false");
 
 #endif //!_PLAYFAIR_H_

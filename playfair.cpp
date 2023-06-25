@@ -230,36 +230,38 @@ string PlayFair::DeCode(string ct)
 
 void PrintBoxMenu()
 {
-	Menu BoxMenu(25);
-	BoxMenu.PrintTitle("Box Action");
+	Menu BoxMenu(25);                 // set width to 25
+	BoxMenu.PrintTitle("Box Action"); // title
 	BoxMenu.PrintChoice(4, "Generate Box", "Type in Box", "Read Box from file",
-	                    "Quit");
-	BoxMenu.PrintFoot();
+	                    "Quit");      // choices
+	BoxMenu.PrintFoot();              // foot
 	return;
 }
 
 void PlayfairBoxAction(PlayFair & pf)
 {
+	// define constant
 	const int GENERATEBOX = 1;
 	const int TYPEINBOX = 2;
 	const int READFROMFILE = 3;
 	const int QUIT = 4;
-	int       ActionChoice = ErrorValue;
+
+	int ActionChoice = ErrorValue; // set default value
 
 	while (true)
 	{
-		std::system("clear");
-		PrintBoxMenu();
-		std::cin >> ActionChoice;
+		std::system("clear");     // clear the screen
+		PrintBoxMenu();           // put menu
+		std::cin >> ActionChoice; // get choice
 		switch (ActionChoice)
 		{
-			case GENERATEBOX:
+			case GENERATEBOX: // generate box and write to file
 			{
 				pf.GenerateBox();
 				pf.WriteBoxToFile();
 				return;
 			}
-			case TYPEINBOX:
+			case TYPEINBOX: // read box from keyboard
 			{
 				pf.TypeinBox();
 				pf.WriteBoxToFile();
@@ -267,22 +269,22 @@ void PlayfairBoxAction(PlayFair & pf)
 			}
 			case READFROMFILE:
 			{
-				string ReadFilePath = "";
+				string ReadFilePath = ""; // get filepath
 				std::cout << "Please input file path:\n";
 				std::cin >> ReadFilePath;
 
 				std::ifstream fin(ReadFilePath);
 
-				if (!fin.fail())
+				if (!fin.fail())                        // if file exist
 				{
-					pf.ReadinBoxFromFile(ReadFilePath);
-					pf.WriteBoxToFile();
+					pf.ReadinBoxFromFile(ReadFilePath); // read box
+					pf.WriteBoxToFile();                // write in file
 					return;
 				}
-				else
+				else // if doesn't exist
 				{
 					std::cout << "The file is not existed,please input the "
-					             "path after you check.\n";
+					             "path after you check.\n"; // waring
 					std::getchar();
 					std::getchar();
 					continue;
@@ -305,10 +307,11 @@ void PlayfairMain(string Operation, string Text, string ActionType)
 
 	const int    OperationSize = 3;
 	const string OperationType[OperationSize] = {"encode", "decode", "setbox"};
-	const string BoxFilePath = "./PlayFairBox.txt";
+	const string BoxFilePath = "./PlayFairBox.txt"; // a file to store box
 
 	int Type = ErrorValue;
 
+	// judge whether the operation is right
 	for (int i = 0; i < OperationSize; i++)
 		if (Operation == OperationType[i])
 			Type = i;
@@ -319,11 +322,12 @@ void PlayfairMain(string Operation, string Text, string ActionType)
 		return;
 	}
 
-	playfair.ReadinBoxFromFile(BoxFilePath);
+	playfair.ReadinBoxFromFile(BoxFilePath); // init box from file
 
-	if (ActionType == "true")
-		PlayfairBoxAction(playfair);
+	if (ActionType == "true")                // if the last value is true
+		PlayfairBoxAction(playfair);         // box action
 
+	// encode and decode
 	switch (Type)
 	{
 		case ENCODE:
@@ -333,4 +337,6 @@ void PlayfairMain(string Operation, string Text, string ActionType)
 			cout << playfair.DeCode(Text) << '\n';
 			break;
 	}
+
+	return;
 }
