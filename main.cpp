@@ -35,8 +35,10 @@ int main(int argc, char * argv[])
 		}
 		case PLAYFAIR:
 		{
-			PlayfairMain(UpperStringToLowerString(argv[2]), argv[3],
-			             UpperStringToLowerString(argv[4]));
+			// if doesn't have the last value, set it false
+			PlayfairMain(
+			    UpperStringToLowerString(argv[2]), argv[3],
+			    (argc == 5 ? UpperStringToLowerString(argv[4]) : "false"));
 			break;
 		}
 		case VIGENERE:
