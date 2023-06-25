@@ -27,3 +27,79 @@ void Vernam::GenerateSecureKey(int SecureKeyLength)
 		SecureKey += (char)(rand() % 256);
 	return;
 }
+
+void VernamMain(string Operation, string Text, string Key)
+{
+	using std::cout;
+
+	Vernam vernam;
+	vernam.ResetSecureKey(Key);
+
+	const int    OperationSize = 2;
+	const string OperationType[OperationSize] = {"encode", "decode"};
+
+	int Type = ErrorValue;
+	for (int i = 0; i < OperationSize; i++)
+		if (Operation == OperationType[i])
+			Type = i;
+
+	if (Type == -1)
+	{
+		cout << ErrorOperation;
+		return;
+	}
+
+	switch (Type)
+	{
+		case ENCODE:
+		{
+			cout << vernam.EnCode(Text) << '\n';
+			break;
+		}
+		case DECODE:
+		{
+			cout << vernam.DeCode(Text) << '\n';
+			break;
+		}
+	}
+	return;
+}
+
+void VernamMain(string Operation, string Text, int KeyLength)
+{
+	using std::cout;
+
+	Vernam vernam;
+	vernam.GenerateSecureKey(KeyLength);
+
+	const int    OperationSize = 2;
+	const string OperationType[OperationSize] = {"encode", "decode"};
+
+	int Type = ErrorValue;
+	for (int i = 0; i < OperationSize; i++)
+		if (Operation == OperationType[i])
+			Type = i;
+
+	if (Type == -1)
+	{
+		cout << ErrorOperation;
+		return;
+	}
+
+	switch (Type)
+	{
+		case ENCODE:
+		{
+			cout << vernam.EnCode(Text) << '\n';
+			break;
+		}
+		case DECODE:
+		{
+			cout << vernam.DeCode(Text) << '\n';
+			break;
+		}
+	}
+	cout << "The secure key is:\n";
+	vernam.ShowSecureKey();
+	return;
+}

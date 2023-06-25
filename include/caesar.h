@@ -2,6 +2,7 @@
 #define _CAESAR_H_
 
 #include "criptographylist.h"
+#include "public.h"
 #include <cctype>
 #include <iostream>
 #include <string>

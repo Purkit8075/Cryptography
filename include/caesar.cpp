@@ -39,10 +39,10 @@ void CaesarMain(string Operation, string Text, int Index)
 {
 	using std::cout;
 
-	static const int OperationSize = 2; // count of operation
+	const int OperationSize = 2; // count of operation
 
 	// opeartion type list
-	static string OperationType[OperationSize] = {"encode", "decode"};
+	const string OperationType[OperationSize] = {"encode", "decode"};
 
 	int    Type = ErrorValue; // default value
 	Caesar caesar;

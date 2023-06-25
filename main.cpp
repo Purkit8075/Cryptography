@@ -2,6 +2,7 @@
 #include "include/criptographylist.h"
 #include "include/menu.h"
 #include "include/playfair.h"
+#include "include/vernam.h"
 #include "include/vigenere.h"
 #include <cctype>
 #include <cstdlib>
@@ -11,6 +12,7 @@
 std::string UpperStringToLowerString(std::string s);
 int         JudgeEncryptionType(std::string Input);
 int         StringToInt(std::string s);
+bool        InputIsNumber(std::string input);
 
 int main(int argc, char * argv[])
 {
@@ -48,7 +50,11 @@ int main(int argc, char * argv[])
 		}
 		case VERNAM:
 		{
-			cout << "vernam";
+			if (InputIsNumber(argv[4]))
+				VernamMain(UpperStringToLowerString(argv[2]), argv[3],
+				           StringToInt(argv[4]));
+			else
+				VernamMain(UpperStringToLowerString(argv[2]), argv[3], argv[4]);
 			break;
 		}
 	}
@@ -83,7 +89,7 @@ int StringToInt(std::string s)
 
 	for (int i = 0; i < s.length(); i++)
 	{
-		if (!std::isalnum(s[i]))
+		if (!std::isdigit(s[i]))
 		{
 			if (i == 0 && s[i] == '-')
 				IsNegative = true;
@@ -95,4 +101,13 @@ int StringToInt(std::string s)
 	}
 
 	return (IsNegative ? (Ans * -1) : Ans);
+}
+
+bool InputIsNumber(std::string input)
+{
+	for (int i = 0; i < input.length(); i++)
+		if (!std::isdigit(input[i]))
+			return false;
+
+	return true;
 }
