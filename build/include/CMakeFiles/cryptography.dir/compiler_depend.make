@@ -568,6 +568,7 @@ include/CMakeFiles/cryptography.dir/playfair.cpp.o: ../include/playfair.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  ../include/public.h \
   /usr/include/c++/11/ctime \
   /usr/include/c++/11/fstream \
   /usr/include/c++/11/bits/codecvt.h \

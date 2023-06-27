@@ -250,9 +250,9 @@ void PlayfairBoxAction(PlayFair & pf)
 
 	while (true)
 	{
-		std::system("clear");     // clear the screen
-		PrintBoxMenu();           // put menu
-		std::cin >> ActionChoice; // get choice
+		int ReturnValueOfSystem = std::system("clear"); // clear the screen
+		PrintBoxMenu();                                 // put menu
+		std::cin >> ActionChoice;                       // get choice
 		switch (ActionChoice)
 		{
 			case GENERATEBOX: // generate box and write to file
