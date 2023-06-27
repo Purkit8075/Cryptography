@@ -44,13 +44,9 @@ void CaesarMain(string Operation, string Text, int Index)
 	// opeartion type list
 	const string OperationType[OperationSize] = {"encode", "decode"};
 
-	int    Type = ErrorValue; // default value
+	int    Type = GetOperationType(Operation, OperationType,
+	                               OperationSize); // default value
 	Caesar caesar;
-
-	// judge if the operation is right
-	for (int i = 0; i < OperationSize; i++)
-		if (Operation == OperationType[i])
-			Type = i;
 
 	// if the operation type is error
 	// print an error string and return

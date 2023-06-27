@@ -3,6 +3,7 @@
 
 #include "caesar.h"
 #include "criptographylist.h"
+#include "public.h"
 #include <cctype>
 #include <cstdlib>
 #include <ctime>

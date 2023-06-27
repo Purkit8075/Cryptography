@@ -3,6 +3,7 @@
 
 #include "criptographylist.h"
 #include "menu.h"
+#include "public.h"
 #include <cctype>
 #include <ctime>
 #include <fstream>

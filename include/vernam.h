@@ -2,6 +2,7 @@
 #define _VERNAM_H_
 
 #include "criptographylist.h"
+#include "public.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>

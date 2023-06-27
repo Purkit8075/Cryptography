@@ -5,6 +5,6 @@
 #include <string>
 using std::string;
 
-int GetOperationType(string Operation, const string OperationList[]);
+int GetOperationType(string Operation, const string OperationList[], int Size);
 
 #endif //!_PUBLIC_H_

@@ -2,11 +2,11 @@
 
 
 
-int GetOperationType(string Operation, const string OperationList[])
+int GetOperationType(string Operation, const string OperationList[], int Size)
 {
 	int Value = ErrorValue;
 
-	for (int i = 0; i < sizeof(OperationList) / sizeof(string); i++)
+	for (int i = 0; i < Size; i++)
 		if (Operation == OperationList[i])
 			Value = i;
 

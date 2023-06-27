@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/purkit/Desktop/VsCode/CPP/Cryptography/include
 
-CXX_FLAGS = -g
+CXX_FLAGS = -O3 -DNDEBUG
 

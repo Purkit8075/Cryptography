@@ -38,10 +38,7 @@ void VernamMain(string Operation, string Text, string Key)
 	const int    OperationSize = 2;
 	const string OperationType[OperationSize] = {"encode", "decode"};
 
-	int Type = ErrorValue;
-	for (int i = 0; i < OperationSize; i++)
-		if (Operation == OperationType[i])
-			Type = i;
+	int Type = GetOperationType(Operation, OperationType, OperationSize);
 
 	if (Type == -1)
 	{
@@ -75,10 +72,7 @@ void VernamMain(string Operation, string Text, int KeyLength)
 	const int    OperationSize = 2;
 	const string OperationType[OperationSize] = {"encode", "decode"};
 
-	int Type = ErrorValue;
-	for (int i = 0; i < OperationSize; i++)
-		if (Operation == OperationType[i])
-			Type = i;
+	int Type = GetOperationType(Operation, OperationType, OperationSize);
 
 	if (Type == -1)
 	{

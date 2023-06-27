@@ -309,12 +309,7 @@ void PlayfairMain(string Operation, string Text, string ActionType)
 	const string OperationType[OperationSize] = {"encode", "decode", "setbox"};
 	const string BoxFilePath = "./PlayFairBox.txt"; // a file to store box
 
-	int Type = ErrorValue;
-
-	// judge whether the operation is right
-	for (int i = 0; i < OperationSize; i++)
-		if (Operation == OperationType[i])
-			Type = i;
+	int Type = GetOperationType(Operation, OperationType, OperationSize);
 
 	if (Type == ErrorValue)
 	{
