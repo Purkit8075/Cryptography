@@ -202,6 +202,30 @@ playfair.cpp.s:
 	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/playfair.cpp.s
 .PHONY : playfair.cpp.s
 
+public.o: public.cpp.o
+.PHONY : public.o
+
+# target to build an object file
+public.cpp.o:
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/public.cpp.o
+.PHONY : public.cpp.o
+
+public.i: public.cpp.i
+.PHONY : public.i
+
+# target to preprocess a source file
+public.cpp.i:
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/public.cpp.i
+.PHONY : public.cpp.i
+
+public.s: public.cpp.s
+.PHONY : public.s
+
+# target to generate assembly for a file
+public.cpp.s:
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/public.cpp.s
+.PHONY : public.cpp.s
+
 vernam.o: vernam.cpp.o
 .PHONY : vernam.o
 
@@ -268,6 +292,9 @@ help:
 	@echo "... playfair.o"
 	@echo "... playfair.i"
 	@echo "... playfair.s"
+	@echo "... public.o"
+	@echo "... public.i"
+	@echo "... public.s"
 	@echo "... vernam.o"
 	@echo "... vernam.i"
 	@echo "... vernam.s"

@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/cryptography.dir/menu.cpp.o.d"
   "CMakeFiles/cryptography.dir/playfair.cpp.o"
   "CMakeFiles/cryptography.dir/playfair.cpp.o.d"
+  "CMakeFiles/cryptography.dir/public.cpp.o"
+  "CMakeFiles/cryptography.dir/public.cpp.o.d"
   "CMakeFiles/cryptography.dir/vernam.cpp.o"
   "CMakeFiles/cryptography.dir/vernam.cpp.o.d"
   "CMakeFiles/cryptography.dir/vigenere.cpp.o"

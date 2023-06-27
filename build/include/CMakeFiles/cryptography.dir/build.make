@@ -111,10 +111,24 @@ include/CMakeFiles/cryptography.dir/playfair.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cryptography.dir/playfair.cpp.s"
 	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/purkit/Desktop/VsCode/CPP/Cryptography/include/playfair.cpp -o CMakeFiles/cryptography.dir/playfair.cpp.s
 
+include/CMakeFiles/cryptography.dir/public.cpp.o: include/CMakeFiles/cryptography.dir/flags.make
+include/CMakeFiles/cryptography.dir/public.cpp.o: ../include/public.cpp
+include/CMakeFiles/cryptography.dir/public.cpp.o: include/CMakeFiles/cryptography.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object include/CMakeFiles/cryptography.dir/public.cpp.o"
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT include/CMakeFiles/cryptography.dir/public.cpp.o -MF CMakeFiles/cryptography.dir/public.cpp.o.d -o CMakeFiles/cryptography.dir/public.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/include/public.cpp
+
+include/CMakeFiles/cryptography.dir/public.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cryptography.dir/public.cpp.i"
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/purkit/Desktop/VsCode/CPP/Cryptography/include/public.cpp > CMakeFiles/cryptography.dir/public.cpp.i
+
+include/CMakeFiles/cryptography.dir/public.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cryptography.dir/public.cpp.s"
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/purkit/Desktop/VsCode/CPP/Cryptography/include/public.cpp -o CMakeFiles/cryptography.dir/public.cpp.s
+
 include/CMakeFiles/cryptography.dir/vernam.cpp.o: include/CMakeFiles/cryptography.dir/flags.make
 include/CMakeFiles/cryptography.dir/vernam.cpp.o: ../include/vernam.cpp
 include/CMakeFiles/cryptography.dir/vernam.cpp.o: include/CMakeFiles/cryptography.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object include/CMakeFiles/cryptography.dir/vernam.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object include/CMakeFiles/cryptography.dir/vernam.cpp.o"
 	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT include/CMakeFiles/cryptography.dir/vernam.cpp.o -MF CMakeFiles/cryptography.dir/vernam.cpp.o.d -o CMakeFiles/cryptography.dir/vernam.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/include/vernam.cpp
 
 include/CMakeFiles/cryptography.dir/vernam.cpp.i: cmake_force
@@ -128,7 +142,7 @@ include/CMakeFiles/cryptography.dir/vernam.cpp.s: cmake_force
 include/CMakeFiles/cryptography.dir/vigenere.cpp.o: include/CMakeFiles/cryptography.dir/flags.make
 include/CMakeFiles/cryptography.dir/vigenere.cpp.o: ../include/vigenere.cpp
 include/CMakeFiles/cryptography.dir/vigenere.cpp.o: include/CMakeFiles/cryptography.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object include/CMakeFiles/cryptography.dir/vigenere.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object include/CMakeFiles/cryptography.dir/vigenere.cpp.o"
 	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT include/CMakeFiles/cryptography.dir/vigenere.cpp.o -MF CMakeFiles/cryptography.dir/vigenere.cpp.o.d -o CMakeFiles/cryptography.dir/vigenere.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/include/vigenere.cpp
 
 include/CMakeFiles/cryptography.dir/vigenere.cpp.i: cmake_force
@@ -144,6 +158,7 @@ cryptography_OBJECTS = \
 "CMakeFiles/cryptography.dir/caesar.cpp.o" \
 "CMakeFiles/cryptography.dir/menu.cpp.o" \
 "CMakeFiles/cryptography.dir/playfair.cpp.o" \
+"CMakeFiles/cryptography.dir/public.cpp.o" \
 "CMakeFiles/cryptography.dir/vernam.cpp.o" \
 "CMakeFiles/cryptography.dir/vigenere.cpp.o"
 
@@ -153,11 +168,12 @@ cryptography_EXTERNAL_OBJECTS =
 include/libcryptography.a: include/CMakeFiles/cryptography.dir/caesar.cpp.o
 include/libcryptography.a: include/CMakeFiles/cryptography.dir/menu.cpp.o
 include/libcryptography.a: include/CMakeFiles/cryptography.dir/playfair.cpp.o
+include/libcryptography.a: include/CMakeFiles/cryptography.dir/public.cpp.o
 include/libcryptography.a: include/CMakeFiles/cryptography.dir/vernam.cpp.o
 include/libcryptography.a: include/CMakeFiles/cryptography.dir/vigenere.cpp.o
 include/libcryptography.a: include/CMakeFiles/cryptography.dir/build.make
 include/libcryptography.a: include/CMakeFiles/cryptography.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libcryptography.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/purkit/Desktop/VsCode/CPP/Cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libcryptography.a"
 	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && $(CMAKE_COMMAND) -P CMakeFiles/cryptography.dir/cmake_clean_target.cmake
 	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build/include && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cryptography.dir/link.txt --verbose=$(VERBOSE)
 

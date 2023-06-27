@@ -21,6 +21,11 @@
 },
 {
   "directory": "/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/cryptography.dir/public.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/include/public.cpp",
+  "file": "/home/purkit/Desktop/VsCode/CPP/Cryptography/include/public.cpp"
+},
+{
+  "directory": "/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include",
   "command": "/usr/bin/g++   -g -o CMakeFiles/cryptography.dir/vernam.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/include/vernam.cpp",
   "file": "/home/purkit/Desktop/VsCode/CPP/Cryptography/include/vernam.cpp"
 },
