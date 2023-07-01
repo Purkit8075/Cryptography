@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/purkit/Desktop/VsCode/CPP/Cryptography/include
+CXX_INCLUDES = 
 
 CXX_FLAGS = -O3 -DNDEBUG
 

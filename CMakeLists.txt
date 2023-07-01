@@ -9,8 +9,6 @@ aux_source_directory(. DIR_SRCS)
 
 add_subdirectory(include)
 
-include_directories(include)
-
 add_executable(main main.cpp)
 
 target_link_libraries(main cryptography)

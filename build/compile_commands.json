@@ -1,13 +1,18 @@
 [
 {
   "directory": "/home/purkit/Desktop/VsCode/CPP/Cryptography/build",
-  "command": "/usr/bin/g++  -I/home/purkit/Desktop/VsCode/CPP/Cryptography/include -O3 -DNDEBUG -o CMakeFiles/main.dir/main.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/main.cpp",
+  "command": "/usr/bin/g++   -O3 -DNDEBUG -o CMakeFiles/main.dir/main.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/main.cpp",
   "file": "/home/purkit/Desktop/VsCode/CPP/Cryptography/main.cpp"
 },
 {
   "directory": "/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include",
   "command": "/usr/bin/g++   -O3 -DNDEBUG -o CMakeFiles/cryptography.dir/caesar.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/include/caesar.cpp",
   "file": "/home/purkit/Desktop/VsCode/CPP/Cryptography/include/caesar.cpp"
+},
+{
+  "directory": "/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include",
+  "command": "/usr/bin/g++   -O3 -DNDEBUG -o CMakeFiles/cryptography.dir/feistel.cpp.o -c /home/purkit/Desktop/VsCode/CPP/Cryptography/include/feistel.cpp",
+  "file": "/home/purkit/Desktop/VsCode/CPP/Cryptography/include/feistel.cpp"
 },
 {
   "directory": "/home/purkit/Desktop/VsCode/CPP/Cryptography/build/include",

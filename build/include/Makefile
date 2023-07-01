@@ -154,6 +154,30 @@ caesar.cpp.s:
 	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/caesar.cpp.s
 .PHONY : caesar.cpp.s
 
+feistel.o: feistel.cpp.o
+.PHONY : feistel.o
+
+# target to build an object file
+feistel.cpp.o:
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/feistel.cpp.o
+.PHONY : feistel.cpp.o
+
+feistel.i: feistel.cpp.i
+.PHONY : feistel.i
+
+# target to preprocess a source file
+feistel.cpp.i:
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/feistel.cpp.i
+.PHONY : feistel.cpp.i
+
+feistel.s: feistel.cpp.s
+.PHONY : feistel.s
+
+# target to generate assembly for a file
+feistel.cpp.s:
+	cd /home/purkit/Desktop/VsCode/CPP/Cryptography/build && $(MAKE) $(MAKESILENT) -f include/CMakeFiles/cryptography.dir/build.make include/CMakeFiles/cryptography.dir/feistel.cpp.s
+.PHONY : feistel.cpp.s
+
 menu.o: menu.cpp.o
 .PHONY : menu.o
 
@@ -286,6 +310,9 @@ help:
 	@echo "... caesar.o"
 	@echo "... caesar.i"
 	@echo "... caesar.s"
+	@echo "... feistel.o"
+	@echo "... feistel.i"
+	@echo "... feistel.s"
 	@echo "... menu.o"
 	@echo "... menu.i"
 	@echo "... menu.s"

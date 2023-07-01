@@ -11,8 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_link_libraries",
-			"include_directories"
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -26,19 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 16,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 12,
+				"line" : 14,
 				"parent" : 0
 			}
 		]
@@ -50,13 +43,6 @@
 			[
 				{
 					"fragment" : "-O3 -DNDEBUG"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 3,
-					"path" : "/home/purkit/Desktop/VsCode/CPP/Cryptography/include"
 				}
 			],
 			"language" : "CXX",
