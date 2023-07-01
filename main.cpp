@@ -50,9 +50,8 @@ int main(int argc, char * argv[])
 		}
 		case VERNAM:
 		{
-			if (InputIsNumber(argv[4]))
-				VernamMain(UpperStringToLowerString(argv[2]), argv[3],
-				           StringToInt(argv[4]));
+			if (argc == 4)
+				VernamMain(UpperStringToLowerString(argv[2]), argv[3]);
 			else
 				VernamMain(UpperStringToLowerString(argv[2]), argv[3], argv[4]);
 			break;
