@@ -20,7 +20,10 @@ public:
 	{
 	}
 
-	Vernam(string sk);
+	Vernam(string sk)
+	    : SecureKey(sk)
+	{
+	}
 
 	void ShowSecureKey() { std::cout << SecureKey << '\n'; }
 

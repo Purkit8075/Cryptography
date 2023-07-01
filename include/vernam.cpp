@@ -1,12 +1,5 @@
 #include "vernam.h"
 
-
-
-Vernam::Vernam(string sk)
-{
-	SecureKey = sk;
-}
-
 string Vernam::EnCode(string pt)
 {
 	string PlainText = StringToBinaryString(pt);
