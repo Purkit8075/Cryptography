@@ -2,7 +2,7 @@
 
 string Vernam::EnCode(string pt)
 {
-	string PlainText = StringToBinaryString(pt);
+	string PlainText = StringToBinaryString(pt); // Generate PlainText
 	GenerateSecureKey(PlainText.length());
 	return PlainText ^ SecureKey;
 }
