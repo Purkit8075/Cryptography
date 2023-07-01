@@ -20,15 +20,17 @@ public:
 	{
 	}
 
+	Vernam(string sk);
+
 	void ShowSecureKey() { std::cout << SecureKey << '\n'; }
 
-	string EnCode(string PlainText);
-	string DeCode(string CipherText);
+	string EnCode(string pt);
+	string DeCode(string ct);
 	void   GenerateSecureKey(int SecureKeyLength);
 	void   ResetSecureKey(string sk) { SecureKey = sk; }
 };
 
 void VernamMain(string Operation, string Text, string Key);
-void VernamMain(string Operation, string Text, int KeyLength);
+void VernamMain(string Operation, string Text);
 
 #endif //!_VERNAM_H_

@@ -2,29 +2,32 @@
 
 
 
-string Vernam::EnCode(string PlainText)
+Vernam::Vernam(string sk)
 {
-	string CipherText = "";
-	GenerateSecureKey(PlainText.length());
-	for (int i = 0; i < PlainText.length(); i++)
-		CipherText += (char)(PlainText[i] ^ SecureKey[i]);
-	return CipherText;
+	SecureKey = sk;
 }
 
-string Vernam::DeCode(string CipherText)
+string Vernam::EnCode(string pt)
 {
-	string PlainText = "";
-	for (int i = 0; i < CipherText.length(); i++)
-		PlainText += (char)(CipherText[i] ^ SecureKey[i]);
-	return PlainText;
+	string PlainText = StringToBinaryString(pt);
+	GenerateSecureKey(PlainText.length());
+	return PlainText ^ SecureKey;
+}
+
+string Vernam::DeCode(string ct)
+{
+	string CipherText = ct;
+	return BinaryStringToString(CipherText ^ SecureKey);
 }
 
 void Vernam::GenerateSecureKey(int SecureKeyLength)
 {
 	std::srand(std::time(NULL));
 
+	SecureKey = "";
+
 	for (int i = 0; i < SecureKeyLength; i++)
-		SecureKey += (char)(rand() % 256);
+		SecureKey += '0' + (rand() % 2);
 	return;
 }
 
@@ -62,12 +65,11 @@ void VernamMain(string Operation, string Text, string Key)
 	return;
 }
 
-void VernamMain(string Operation, string Text, int KeyLength)
+void VernamMain(string Operation, string Text)
 {
 	using std::cout;
 
 	Vernam vernam;
-	vernam.GenerateSecureKey(KeyLength);
 
 	const int    OperationSize = 2;
 	const string OperationType[OperationSize] = {"encode", "decode"};
